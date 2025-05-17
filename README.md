@@ -42,13 +42,14 @@ BMI = weight (kg) / (height (m))²
 
 ## 📸 Screenshots
 
-> *(Add screenshots of the UI here to make it more attractive!)*
+> *![ss1](screenshots/ss1.png)*
+> *![ss2](screenshots/ss2.png)*
 
 ## 🛠 How to Build
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/bmi-gauge-app.git
+   git clone https://github.com/YEmrehan/Android-BMI-Calculator
    ```
 2. Open the project in **Android Studio**.
 3. Click **Run** to build and launch the app on an emulator or physical device.
