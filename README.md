@@ -43,8 +43,9 @@ BMI = weight (kg) / (height (m))²
 ## 📸 Screenshots
 
 <p float="left">
-  <img src="screenshots/ss1.png" width="300" />
-  <img src="screenshots/ss2.png" width="300" />
+  <img src="screenshots/ss1.png" width="250" />
+  <img src="screenshots/ss2.png" width="250" />
+  <img src="screenshots/ss3.png" width="250" />
 </p>
 
 ## 🛠 How to Build
