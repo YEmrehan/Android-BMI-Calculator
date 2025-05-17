@@ -42,8 +42,10 @@ BMI = weight (kg) / (height (m))²
 
 ## 📸 Screenshots
 
-> *![ss1](screenshots/ss1.png)*
-> *![ss2](screenshots/ss2.png)*
+<p float="left">
+  <img src="screenshots/ss1.png" width="300" />
+  <img src="screenshots/ss2.png" width="300" />
+</p>
 
 ## 🛠 How to Build
 
