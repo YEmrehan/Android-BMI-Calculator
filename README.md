@@ -74,7 +74,7 @@ The `BmiGaugeView` class uses `Canvas` to draw:
 - A floating text label with the BMI score.
 
 ```kotlin
-canvas.drawText("BMI: 22.0", centerX, centerY - radius - 100, paint)
+canvas.drawText(bmiText, centerX, centerY - radius - 60, textPaint)
 ```
 
 ## 🤝 Contributions
