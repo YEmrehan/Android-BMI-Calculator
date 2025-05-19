@@ -12,4 +12,10 @@
     <string name="bmi_text">BMI: %1$s%2$s</string>
     <string name="error_invalid_data">Missing or invalid data</string>
     <string name="error_fill_all">Please fill in all fields</string>
+    <string name="bmi_message_child">(BMI for children is assessed differently)</string>
+    <string name="bmi_message_elderly">(BMI for the elderly is assessed differently)</string>
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normal">Normal</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
 </resources>

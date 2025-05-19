@@ -1,5 +1,6 @@
 package com.example.bmi
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         val bmiGaugeView = findViewById<BmiGaugeView>(R.id.bmiGaugeView)
         val statusText = findViewById<TextView>(R.id.statusText)
 
+        ageND.requestFocus()
+
         showBTN.setOnClickListener {
             val ageText = ageND.text.toString()
             val heightText = heightND.text.toString()
@@ -39,22 +42,21 @@ class MainActivity : AppCompatActivity() {
                 val heightCm = heightText.toDoubleOrNull()
                 val weightKg = weightText.toDoubleOrNull()
 
-                if (age != null && heightCm != null && weightKg != null && heightCm > 0) {
-                    val heightM = heightCm / 100
-                    val bmiS = weightKg / (heightM * heightM)
-                    val bmiFormatted = String.format(Locale.US, "%.2f", bmiS)
+                if(age != null && heightCm != null && weightKg != null && age > 0 && heightCm > 0 && weightKg > 0){
+                    val bmiValue = calculateBmi(heightCm, weightKg)
+                    val bmiFormatted = String.format(Locale.US, "%.2f", bmiValue)
 
                     val ageMessage = when {
-                        age < 18 -> " (BMI for children is assessed differently)"
-                        age >= 65 -> " (BMI for the elderly is assessed differently)"
+                        age < 18 -> getString(R.string.bmi_message_child)
+                        age >= 65 -> getString(R.string.bmi_message_elderly)
                         else -> ""
                     }
 
                     val bmiText = getString(R.string.bmi_text, bmiFormatted, ageMessage)
                     bmiScore.text = bmiText
-                    bmiGaugeView.bmiValue = bmiS.toFloat()
+                    bmiGaugeView.bmiValue = bmiValue.toFloat()
 
-                    val status = getBmiStatus(bmiS)
+                    val status = getBmiStatus(this, bmiValue)
                     statusText.text = status
 
                 } else {
@@ -67,11 +69,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-private fun getBmiStatus(bmi: Double): String {
+private fun getBmiStatus(context: Context, bmi: Double): String {
     return when {
-        bmi < 18.5 -> "Underweight"
-        bmi < 25.0 -> "Normal"
-        bmi < 30.0 -> "Overweight"
-        else -> "Obese"
+        bmi < 18.5 -> context.getString(R.string.bmi_underweight)
+        bmi < 25.0 -> context.getString(R.string.bmi_normal)
+        bmi < 30.0 -> context.getString(R.string.bmi_overweight)
+        else -> context.getString(R.string.bmi_obese)
     }
+}
+private fun calculateBmi(heightCm: Double, weightKg: Double): Double {
+    val heightM = heightCm / 100
+    return weightKg / (heightM * heightM)
 }

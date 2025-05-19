@@ -1,14 +1,17 @@
 package com.example.bmi
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.graphics.toColorInt
+import java.text.DecimalFormat
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
-import java.text.DecimalFormat
-import androidx.core.graphics.toColorInt
 
 class BmiGaugeView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
