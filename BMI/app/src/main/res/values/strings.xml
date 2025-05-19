@@ -9,4 +9,7 @@
     <string name="bmi">BMI Score</string>
     <string name="show">Show</string>
     <string name="status">Status</string>
+    <string name="bmi_text">BMI: %1$s%2$s</string>
+    <string name="error_invalid_data">Missing or invalid data</string>
+    <string name="error_fill_all">Please fill in all fields</string>
 </resources>

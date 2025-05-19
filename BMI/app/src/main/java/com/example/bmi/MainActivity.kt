@@ -1,6 +1,5 @@
 package com.example.bmi
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,9 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.util.Locale
+
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n", "DefaultLocale", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 if (age != null && heightCm != null && weightKg != null && heightCm > 0) {
                     val heightM = heightCm / 100
                     val bmiS = weightKg / (heightM * heightM)
-                    val bmiFormatted = String.format("%.2f", bmiS)
+                    val bmiFormatted = String.format(Locale.US, "%.2f", bmiS)
 
                     val ageMessage = when {
                         age < 18 -> " (BMI for children is assessed differently)"
@@ -50,17 +50,18 @@ class MainActivity : AppCompatActivity() {
                         else -> ""
                     }
 
-                    bmi.text = "BMI: $bmiFormatted$ageMessage"
+                    val bmiText = getString(R.string.bmi_text, bmiFormatted, ageMessage)
+                    bmi.text = bmiText
                     bmiGaugeView.bmiValue = bmiS.toFloat()
 
                     val status = getBmiStatus(bmiS)
                     statusText.text = status
 
                 } else {
-                    bmi.text = "Missing or invalid data"
+                    bmi.text = getString(R.string.error_invalid_data)
                 }
             } else {
-                    bmi.text = "Please fill in all fields"
+                bmi.text = getString(R.string.error_fill_all)
             }
         }
 
