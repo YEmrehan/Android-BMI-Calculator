@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val ageND = findViewById<EditText>(R.id.ageND)
         val heightND = findViewById<EditText>(R.id.heightND)
         val weightND = findViewById<EditText>(R.id.weightND)
-        val bmi = findViewById<TextView>(R.id.bmiScore)
+        val bmiScore = findViewById<TextView>(R.id.bmiScore)
         val bmiGaugeView = findViewById<BmiGaugeView>(R.id.bmiGaugeView)
         val statusText = findViewById<TextView>(R.id.statusText)
 
@@ -51,17 +51,17 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     val bmiText = getString(R.string.bmi_text, bmiFormatted, ageMessage)
-                    bmi.text = bmiText
+                    bmiScore.text = bmiText
                     bmiGaugeView.bmiValue = bmiS.toFloat()
 
                     val status = getBmiStatus(bmiS)
                     statusText.text = status
 
                 } else {
-                    bmi.text = getString(R.string.error_invalid_data)
+                    bmiScore.text = getString(R.string.error_invalid_data)
                 }
             } else {
-                bmi.text = getString(R.string.error_fill_all)
+                bmiScore.text = getString(R.string.error_fill_all)
             }
         }
 
