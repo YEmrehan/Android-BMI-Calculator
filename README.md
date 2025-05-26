@@ -52,7 +52,7 @@ BMI = weight (kg) / (height (m))²
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YEmrehan/Android-BMI-Calculator
+   git clone https://github.com/YEmrehan/Android-BMI-Calculator.git
    ```
 2. Open the project in **Android Studio**.
 3. Click **Run** to build and launch the app on an emulator or physical device.
